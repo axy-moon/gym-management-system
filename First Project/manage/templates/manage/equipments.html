@@ -1,0 +1,43 @@
+{% extends 'manage/admin.html' %}
+
+{% block title %}
+AM FITNESS - Equipments
+{% endblock %}
+{% block page %}
+
+<section class="data-table">
+    <h3>Equipments</h3>
+    <div class="mem-link" style="margin-left:210px;">
+    <a href="{% url 'AddEquipment' %}">Add Equipment  <i class="fas fa-wrench"></i></a>
+    </div>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Model No</th>
+                <th>Name</th>
+                <th>Price(₹)</th>
+                <th>No of Units</th>
+                <th>Type</th>
+                <th>Warranty Period</th>
+                <th>Date of Purchase</th>
+                <th>     </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in eqp %}
+            <tr>
+                <td>{{i.model_no}}</td>
+                <td>{{i.eq_name}}</td>
+                <td>{{i.price}}</td>
+                <td>{{i.units}}</td>
+                <td>{{i.eq_type}}</td>
+                <td>{{i.warranty}}</td>
+                <td>{{i.date_of_pur}}</td>
+                <td><a class="table-btn" href="#" onclick="return confirm('Are You Sure?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+
+{% extends 'manage/admin.html' %}
+
+{% block title_html %}
+	AM FITNESS | LOGIN
+{% endblock %}
+{% block page%}
+    	<section class='loginpage'>
+        	<div class='loginbox'>
+
+            <form method="POST" action="{% url 'login' %}">
+				{% csrf_token %}
+                <h1>Login</h1>
+                <div>
+                    <label>Username</label>
+                    <input type ='text' name="username" class='form-control' required>
+                </div>
+                <div>
+                    <label>Password</label>
+                    <input type='password' name="password" class='form-control' required>
+                </div>
+                    <input type="submit" class="btn" value="Login">
+            </form>
+            </div>
+            {% for message in messages %}
+
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                {{ message }}
+              </div>
+
+            {% endfor %}
+	</section>   
+
+	{% endblock %}
+
+<!---
+
+username: gym_admin
+password: 4dm1nL0g1n
+
+-->
+		 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+{% extends 'gym/base.html' %}
+
+{% block title_html %}
+	AM FITNESS | PLANS
+{% endblock %}
+{% block page_content%}
+
+
+<div class='header'>
+ <h1> Plans </h1>
+ <p>The purpose behind this venture was to give an ultimate fitness experience under the supervision of highly qualified & experienced professionals.<br>AM FITNESS is expanding across the nation & internationally, ensuring you a luxurious fitness experience.<br>Our standards are periodically refined to live up to the brand’s promise and be relevant.We stand with an Experienced team who share a great<br> rapport with our members,  keeping in mind their needs on first priority and are with them each step of the way in reaching their goals.
+</p>
+<h3> Get Trained Today - Join Us </h3>
+ 	</div>
+ 	<section class=plans>
+ 	<div class='container'>
+	 <div class='box'>
+		<div class='icon'>01</div>
+		<div class='content'>
+			<h3>Silver</h3>
+			<p>Access to all strength equipments</br>Limited Workout Time</br>Special Sessions</br>Workout Plans<br>Special Events</p>
+			<a href="{% url 'gym:membership' %}">₹1000/month</a>
+		</div>
+	 </div>	
+	 <div class='box'>
+		<div class='icon'>02</div>
+		<div class='content'>
+			<h3>Gold</h3>
+					<p>Access to all equipments<br>Two sessions per day<br>Personal Training<br>Diet Plans<br>Group Sessions</p>
+			<a href="{% url 'gym:membership' %}">₹8000/HalfYearly</a>
+		</div>
+	 </div>	
+	 <div class='box'>
+		<div class='icon'>03</div>
+		<div class='content'>
+			<h3>Platinum</h3>
+			<p>Full Access<br>Anytime workout<br>Certified Personal Trainer<br>Wellness Programs<br>Yoga Classes</p>
+			<a href="{% url 'gym:membership' %}">₹25000/annum</a>
+		</div>
+		</div>		
+ 		</div>
+		</section>	
+  {% endblock %}

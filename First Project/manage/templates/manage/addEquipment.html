@@ -1,0 +1,55 @@
+{% extends 'manage/admin.html' %}
+
+{% block title %}
+    AM FITNESS | EQUIPMENTS
+{% endblock %}
+{% block page%}
+    <section class="addMemForm">
+    <div class="mem-container">
+        <div class="title">Add EQUIPMENT</div>
+        <form action="{% url 'AddEquipment' %}" method="POST">
+            {% csrf_token %}
+            <div class="member-details">
+                <div class="mem-input-box">
+                    <span class="details">Equipment Name</span>
+                    <input type="text" name="name"required>
+                </div>
+                 
+                <div class="mem-input-box">
+                    <span class="details">Model No</span>
+                    <input type="text" name="model"  required>
+                </div>
+                <div class="mem-input-box">
+                    <span class="details">Price(₹)</span>
+                    <input type="number" name="price"  required>
+                </div>
+                
+                <div class="mem-input-box">
+                    <span class="details">Quantity</span>
+                    <input type="text" name="quantity" required>
+                </div>
+                
+            
+                <div class="mem-input-box">
+                    <span class="details">Type</span>
+                    <input type="text"  name="type" required>
+                </div>
+
+                <div class="mem-input-box">
+                    <span class="details">Date of Purchase</span>
+                    <input type="date" name="dop" required>
+                </div>            
+                <div class="mem-input-box">
+                    <span class="details">Warranty Period(years)</span>
+                    <input type="number" name="war_per" required>
+                </div>
+            </div>
+            <div class="add-btn">
+            <input type="submit" value="Add Equipment">
+        </div>    
+        </form>
+    
+    </div>   
+</section>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'manage/admin.html' %}
+
+{% block title %}
+AM FITNESS - Members
+{% endblock %}
+{% block page %}
+
+<section class="data-table">
+    <h3>Members</h3>
+    <div class="mem-link" style="margin-left: 120px;">
+    <a href="{% url 'AddMember' %}">Add Member  <i class="fas fa-user-plus"></i></a>
+    </div>
+    <div>
+    <div class="mem-link2">
+        <a href="{% url 'fee' %}">Fee Status  <i class="fas fa-wallet"></i></a>
+        </div>
+    </div>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Mobile</th>
+                <th>Date of Birth</th>
+                <th>Email</th>
+                <th>Plan</th>
+                <th>Date Joined</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in members %}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.full_name}}</td>
+                <td>{{i.gender}}</td>
+                <td>{{i.age}}</td>
+                <td>{{i.cell_no}}</td>
+                <td>{{i.born_date}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.plan}}</td>
+                <td>{{i.date_joined}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

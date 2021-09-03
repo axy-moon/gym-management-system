@@ -1,0 +1,63 @@
+{% extends 'manage/admin.html' %}
+
+{% block title %}
+    AM FITNESS | MEMBERS
+{% endblock %}
+{% block page%}
+    <section class="addMemForm">
+    <div class="mem-container">
+        <div class="title">Add Member</div>
+        <form action="{% url 'AddMember' %}" method="POST">
+            {% csrf_token %}
+            <div class="member-details">
+                <div class="mem-input-box">
+                    <span class="details">Full Name</span>
+                    <input type="text" name="name"required>
+                </div>
+                 
+                <div class="mem-input-box">
+                    <span class="details">Email</span>
+                    <input type="email" name="email"  required>
+                </div>
+                
+                
+                <div class="mem-input-box">
+                    <span class="details">Age</span>
+                    <input type="text" name="age" required>
+                </div>
+                
+            
+                <div class="mem-input-box">
+                    <span class="details">Phone No</span>
+                    <input type="tel"  name="cell" required>
+                </div>
+
+                <div class="mem-input-box">
+                    <span class="details">Date of Birth</span>
+                    <input type="date" name="dob" required>
+                </div>            
+                <div class="gender">
+                    <span class="details">Gender</span><br>
+                    <input type="radio" name="gender" value="Male">
+                    <label class="male">Male</label>
+                    <input type="radio" name="gender" value="Female">
+                    <label class="female">Female</label>
+                </div>
+                <div class="plans-select">
+                    <span class="details">Plan</span><br>
+                    <select name="plan">
+                        <option value="Silver">Silver</option>
+                        <option value="Gold">Gold</option>
+                        <option value="Platinum">Platinum</option>
+                    </select>
+                </div>
+            </div>
+            <div class="add-btn">
+            <input type="submit" value="Add Member">
+        </div>    
+        </form>
+    
+    </div>   
+</section>
+
+{% endblock %}

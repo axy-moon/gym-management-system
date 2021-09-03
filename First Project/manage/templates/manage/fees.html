@@ -1,0 +1,37 @@
+{% extends 'manage/admin.html' %}
+
+{% block title %}
+AM FITNESS - Fees & Payments
+{% endblock %}
+
+{% block page%}
+
+<section class="data-table">
+    <h3>Fee & Payment</h3>
+    </div>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>     </th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for i in f %}
+            <tr>
+                <td>{{i.member}}</td>
+                {% if i.paid_status == True %}
+                    <td>Paid</td>
+                {% else %}
+                    <td>Pending</td>
+                {% endif %}    
+                <td><a class="table-btn" href="{% url 'updatefee' i.id %}" style="background-color: #A4FF00;">Update</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

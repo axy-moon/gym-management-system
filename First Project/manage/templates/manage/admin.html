@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+{% load static %}
+	<meta charset="utf-8" name = "viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="{% static 'images/icon.png' %}">
+<link rel="stylesheet" href="{% static 'css/style3.css' %}">
+<script src="https://kit.fontawesome.com/4fc0c0ec0f.js" crossorigin="anonymous"></script>
+ {% block css %} {% endblock %}
+
+ <title>
+     {% block title%} {% endblock %}
+ </title>
+</head>
+
+ <body> 
+	 <!-- #navigation links -->
+ 	<section class="navigation">
+			<nav>
+				<a href="{% url 'gym:home'%}"><img src="{% static 'images/logo.png' %}"></a>
+				<div class="nav-links">
+					<ul>
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'logout'%}">Log Out</a></li>
+						{% else %}
+						<li><a href="{% url 'gym:home'%}">Home</a></li>
+						<li><a href="{% url 'gym:payment'%}">Fee Payment</a></li>
+						<li><a href="{% url 'gym:plans'%}">Buy Membership</a></li>
+						<li><a href="{% url 'login'%}">Log In</a></li>
+						{% endif %}
+					</ul>
+			</nav>	
+		</section>
+        <div>
+            {% block page %} {% endblock %}
+        </div>        

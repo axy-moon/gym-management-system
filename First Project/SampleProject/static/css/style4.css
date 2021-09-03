@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+img {
+    display: grid;
+    place-items: center;
+}
+p {
+    line-height:5px;
+}
+h1{
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+.first-section {
+    display: flex;
+    justify-content: space-between;
+}

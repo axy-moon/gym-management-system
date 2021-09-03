@@ -1,0 +1,41 @@
+{% extends 'manage/admin.html'%}
+{% block title %}
+AM FITNESS - Schedule
+{% endblock %}
+
+{% block page%}
+<section class="data-table">
+    <h3>Schedule</h3>
+    <div class="mem-link" style="margin-left:145px;">
+    <a href="#">Add Schedule  <i class="fas fa-clock"></i></a>
+    </div>
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th>Member Name</th>
+                {% for j in days%}
+                <th>{{j}}</th>
+                {% endfor %}
+                <th>Trainer</th>
+                <th>     </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in sch %}
+            <tr>
+                <td>{{i.client}}</td>
+                <td>{{i.mon}}</td>
+                <td>{{i.tue}}</td>
+                <td>{{i.wed}}</td>
+                <td>{{i.thu}}</td>
+                <td>{{i.fri}}</td>
+                <td>{{i.sat}}</td>
+                <td>{{i.trainer}}</td>
+                <td><a class="table-btn" href="#" onclick="return confirm('Are You Sure?')">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+
+{% endblock %}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+	<meta charset="utf-8" name = "viewport" content="width=device-width,initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap" rel="stylesheet">
+	<link rel="shortcut icon" href="{% static 'images/icon.png' %}">
+	<title>AM FITNESS</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	 {% block css %} {% endblock %}
+</head>
+<body>
+		<section class="header">
+			<nav>
+				<a href="{% url 'gym:home'%}"><img src="{% static 'images/logo.png' %}"></a>
+				<div class="nav-links">
+					<ul>
+						{% if user.is_authenticated %}
+						<li><a href="{% url 'logout'%}">Log Out</a></li>
+						{% else %}
+						<li><a href="{% url 'gym:home'%}">Home</a></li>
+						<li><a href="{% url 'gym:payment'%}">Fee Payment</a></li>
+						<li><a href="{% url 'gym:plans'%}">Buy Membership</a></li>
+						<li><a href="{% url 'login'%}">Log In</a></li>
+						{% endif %}
+					</ul>
+			</nav>
+		<div class="text-box">
+			<h1>One Stop for Fitness</h1>
+			<p>
+				If you’re looking to join a supportive, welcoming gym community, with people of all fitness levels who want to see you succeed,<br> you’ve come to the right place.
+			</p>
+			
+		</div>		
+		</section>
+		<!------------Plans------------->
+		<section class="plans">
+			<h1>Plans We Offer</h1>
+			<p>
+				We offer various plans for our customers.These plans are categorized as silver,gold and platinum.
+				payments are done by online mode,
+			</p>
+			<div class="row">
+				<div class="plans-type">
+					<h3>Silver</h3>
+
+					<p>
+						Access to all strength equipments</br>Limited Workout Time</br>Diet Plans<br>						
+					</p>
+				</div>
+					<div class="plans-type">
+					<h3>Gold</h3>
+					<p>Access to all strength and cardio equipments<br>Two sessions a day<br>Diet Plans<br>
+						
+					</p>
+					</div>
+				<div class="plans-type">
+					<h3>Platinum</h3>
+				<p>Anytime Access<br>Personal Training<br>Yoga Classes<br>Special Diet Plans
+					</p>
+				</div>
+				
+			</div>	
+		</section>
+		<section class="about">
+		<div>
+			<h1>Features</h1>
+			<p>You’re not just joining a gym. You’re joining a supportive community of like-minded people who are here to give you the encouragement you need.</p>	
+	</div>
+	<div class="row">
+		<div class="about-col">
+			<img src="{% static 'images/personanl training.png' %}">
+			<h3>Personal Training</h3>
+				<p>Personal training is provided by our specialized trainers for every Platinum members</p>
+	    </div>
+	    <div class="about-col">
+			<img src="{% static 'images/yoga.png' %}">
+			<h3>Mind and Body Studio</h3>
+				<p>Yoga Classes are available with certified trainers</p>
+	    </div>
+	    <div class="about-col">
+			<img src="{% static 'images/group.png' %}">
+			<h3>Group Exercises</h3>
+				<p>Exercises are done in group to avoid intimidation</p>
+	    </div>	
+	</div>
+		</section>
+
+		<section class="VisitUs">
+			<h1>Let us help you with your Fitness Goals,Whether it is Fat Loss,Muscle Gain or to Prepare for that Special event</h1>
+			<a href="{% url 'gym:plans' %}" class="hero-btn">Join Us</a>
+
+			
+		</section>		
+<!--footer--->
+<footer>
+	<div class="main-content">
+	  <div class="left box">
+		<h2>About us</h2>
+		<div class="content">
+		  <p>AM FITNESS is unisex fitness gym at coimbatore.We Provide World Class training for your fitness needs.we will empower you to stick at it and make Health and Fitness a major part of your life, (and the fun part!) rather than just a passing fad</p>
+		  <div class="social">
+			<a href="#"><span class="fab fa-facebook-f"></span></a>
+			<a href="#"><span class="fab fa-twitter"></span></a>
+			<a href="#"><span class="fab fa-instagram"></span></a>
+			<a href="#"><span class="fab fa-youtube"></span></a>
+		  </div>
+		</div>
+	  </div>
+
+	  <div class="center box">
+		<h2>Address</h2>
+		<div class="content">
+		  <div class="place">
+			<span class="fas fa-map-marker-alt"></span>
+			<span class="text">Peelamedu, Coimbatore</span>
+		  </div>
+		  <div class="phone">
+			<span class="fas fa-phone-alt"></span>
+			<span class="text">+919489443153</span>
+		  </div>
+		  <div class="email">
+			<span class="fas fa-envelope"></span>
+			<span class="text">axy@amfitness.ac.in</span>
+		  </div>
+		</div>
+	  </div>
+
+	  <div class="right box">
+		<h2>Contact us</h2>
+		<div class="content">
+		  <form method="POST" action="{% url 'gym:home' %}" >
+			  {% csrf_token %}
+			<div class="email">
+			  <div class="text">Email *</div>
+			  <input type="email" name="enq_email" required>
+			</div>
+			<div class="msg">
+			  <div class="text">Message *</div>
+			  <textarea name="enquiry" rows="2" cols="25" required></textarea>
+			</div>
+			<div class="btn">
+			  <button type="submit">Send</button>
+			</div>
+		  </form>
+		</div>
+	  </div>
+	</div>
+	<div class="bottom">
+	  <center>
+		<span class="credit"><a href="#">AM FITNESS</a> | </span>
+		<span class="far fa-copyright"></span><span> 2020 All rights reserved.</span>
+	  </center>
+	</div>
+  </footer>
+
+</body>
+</html>

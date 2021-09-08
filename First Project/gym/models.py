@@ -72,6 +72,7 @@ class packages(models.Model):
 class fee(models.Model):
 	member = models.ForeignKey(gym,on_delete=CASCADE,default=1,verbose_name='Member Name')
 	paid_status = models.BooleanField(default=False,verbose_name='Status')
+	pay_mode = models.CharField(max_length=10,default='Online',verbose_name='Payment Mode')
 
 	def __str__(self):
 		return self.member.full_name

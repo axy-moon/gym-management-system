@@ -3,7 +3,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User , auth
 from django.contrib import messages
 from .models import *
-# Create your views here.
+import random
+ # Create your views here.
 
 def home(request):
 	if request.method == 'POST':
@@ -21,22 +22,30 @@ def plans(request):
 
 
 def payment(request):
-	members = fee.objects.all()
+	f = fee.objects.all()
 	if request.method == 'POST':
 		name = request.POST['paid_member']
 		mem_id = request.POST['id']
 
-		f = fee.objects.get(id=mem_id)
-		f.paid_status = True
-		f.save()
-		return redirect('gym:home')
+		if mem_id not in f:
+			return HttpResponse("Member not Found")
+
+		fee.objects.filter(pk=mem_id).update(paid_status=True)
+		return redirect('gym:success')
 	ExpiryDate = {
 	'months' : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
 	'years' : [2021,2022,2023,2024,2025,2026,2027,2028,2029,2030] }
 	return render(request,'gym/payment.html',{'dates':ExpiryDate})
 	
-	
+def paySucc(request):
+	trans_id = ""
 
+	for i in range(9):
+		trans_id += str(random.randint(1,10))
+
+	d = {'t_id' : trans_id}
+	return render(request,'gym/paysucess.html',d)	
+	
 def membership(request):
 	
 	if request.method == 'POST':
@@ -49,7 +58,6 @@ def membership(request):
 		dob = request.POST['DOB']
 
 		gym.objects.create(full_name=name,gender=gender,age=age,cell_no=cell,born_date=dob,email=email,plan=pack)
-		fee.objects.update()
 		return redirect('gym:home')
 	ExpiryDate = {
 		'months' : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],

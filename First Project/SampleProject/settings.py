@@ -122,7 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'E:/Project Backup/First Project/SampleProject/static/')
+    os.path.join(BASE_DIR,'E:/Mini Project/First Project/SampleProject/static/')
 ]
 STATIC_ROOT = os.path.join(BASE_DIR,'assets')
 # Default primary key field type

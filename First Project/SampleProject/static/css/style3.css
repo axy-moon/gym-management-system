@@ -430,3 +430,10 @@ form .add-btn input {
 form .add-btn input:hover {
 	background: orangered;
 }
+
+/* ######################################## Payment Success ################# */
+
+.success {
+	text-align: center;
+	padding: 100px;
+} 

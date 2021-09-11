@@ -1,0 +1,235 @@
+{% extends 'manage/admin.html' %}
+
+{% block title %} 
+    AM FITNESS | SCHEDULE
+{% endblock %}
+
+{% block page %}
+        <section class="addMemForm">
+            <div class="mem-container">
+                <div class="title">Add Schedule</div>
+                <form action="{% url 'addsch' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="member-details">
+                        <div class="mem-input-box" style="text-align: center; margin-left: 175px; padding-bottom: 50px;">
+                            <span class="details">Full Name</span>
+                            <input type="text" name="name" required>
+                        </div>
+                         
+                        
+                        <div class="sch-select">
+                            <label for="mon">Monday</label>
+
+                            <select name="mon">
+                                <option value="Chest">Chest</option>
+                                <option value="Triceps">Triceps</option>
+                                <option value="Shoulders">Shoulders</option>
+                                <option value="Leg">Leg</option>
+                                <option value="Back">Back</option>
+                                <option value="Biceps">Biceps</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Yoga">Yoga</option>
+                                </select>
+                
+                                <label for="tue">Tuesday</label>
+                
+                            <select name="tue">
+                                <option value="Chest">Chest</option>
+                                <option value="Triceps" selected>Triceps</option>
+                                <option value="Shoulders">Shoulders</option>
+                                <option value="Leg">Leg</option>
+                                <option value="Back">Back</option>
+                                <option value="Biceps">Biceps</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Yoga">Yoga</option>
+                                </select>
+                                
+                                <label for="wed">Wednesday</label>
+                
+                                <select name="wed">
+                                    <option value="Chest">Chest</option>
+                                    <option value="Triceps">Triceps</option>
+                                    <option value="Shoulders" selected>Shoulders</option>
+                                    <option value="Leg">Leg</option>
+                                    <option value="Back">Back</option>
+                                    <option value="Biceps">Biceps</option>
+                                    <option value="Cardio">Cardio</option>
+                                    <option value="Yoga">Yoga</option>
+                                    </select>
+                                
+                                    <label for="thu">Thursday</label>
+                
+                                    <select name="thu">
+                                        <option value="Chest">Chest</option>
+                                        <option value="Triceps">Triceps</option>
+                                        <option value="Shoulders">Shoulders</option>
+                                        <option value="Leg" selected>Leg</option>
+                                        <option value="Back">Back</option>
+                                        <option value="Biceps">Biceps</option>
+                                        <option value="Cardio">Cardio</option>
+                                        <option value="Yoga">Yoga</option>
+                                        </select>
+                                     
+                                    <label for="fri">Friday</label>
+                
+                            <select name="fri">
+                                <option value="Chest">Chest</option>
+                                <option value="Triceps">Triceps</option>
+                                <option value="Shoulders">Shoulders</option>
+                                <option value="Leg">Leg</option>
+                                <option value="Back" selected>Back</option>
+                                <option value="Biceps">Biceps</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Yoga">Yoga</option>
+                                </select>
+                
+                                <label for="sat">Saturday</label>
+                
+                            <select name="sat">
+                                <option value="Chest">Chest</option>
+                                <option value="Triceps">Triceps</option>
+                                <option value="Shoulders">Shoulders</option>
+                                <option value="Leg">Leg</option>
+                                <option value="Back">Back</option>
+                                <option value="Biceps" selected>Biceps</option>
+                                <option value="Cardio">Cardio</option>
+                                <option value="Yoga">Yoga</option>
+                                </select>
+                
+                                <br><label for="train">Trainer</label>
+                                <select name="train">
+                                    {%for i in trainer %}
+                                   <option value='{{i.trainer_name}}'>{{i.trainer_name}}</option>                
+                                    {% endfor %}
+                                </select>
+                            
+                        </div>
+                    </div>
+                    <div class="add-btn">
+                    <input type="submit" value="Add Schedule">
+                </div>    
+                </form>
+            
+            </div>   
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!---- <form method="POST" action="#" class="member-details">
+            <div class="mem-input-box>
+                <div class="mem-input-box">
+                    <span class="details">Full Name</span>
+                    <input type="text" name="name"required>
+                </div>
+            <div class="select">
+                
+                <label for="mon">Monday</label>
+
+            <select name="mon">
+                <option value="Chest">Chest</option>
+                <option value="Triceps">Triceps</option>
+                <option value="Shoulders">Shoulders</option>
+                <option value="Leg">Leg</option>
+                <option value="Back">Back</option>
+                <option value="Biceps">Biceps</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Yoga">Yoga</option>
+                </select>
+
+                <label for="tue">Tuesday</label>
+
+            <select name="tue">
+                <option value="Chest">Chest</option>
+                <option value="Triceps" selected>Triceps</option>
+                <option value="Shoulders">Shoulders</option>
+                <option value="Leg">Leg</option>
+                <option value="Back">Back</option>
+                <option value="Biceps">Biceps</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Yoga">Yoga</option>
+                </select>
+                
+                <label for="wed">Wednesday</label>
+
+                <select name="wed">
+                    <option value="Chest">Chest</option>
+                    <option value="Triceps">Triceps</option>
+                    <option value="Shoulders" selected>Shoulders</option>
+                    <option value="Leg">Leg</option>
+                    <option value="Back">Back</option>
+                    <option value="Biceps">Biceps</option>
+                    <option value="Cardio">Cardio</option>
+                    <option value="Yoga">Yoga</option>
+                    </select>
+                
+                    <label for="thu">Thursday</label>
+
+                    <select name="thu">
+                        <option value="Chest">Chest</option>
+                        <option value="Triceps">Triceps</option>
+                        <option value="Shoulders">Shoulders</option>
+                        <option value="Leg" selected>Leg</option>
+                        <option value="Back">Back</option>
+                        <option value="Biceps">Biceps</option>
+                        <option value="Cardio">Cardio</option>
+                        <option value="Yoga">Yoga</option>
+                        </select>
+                     
+                    <label for="fri">Friday</label>
+
+            <select name="fri">
+                <option value="Chest">Chest</option>
+                <option value="Triceps">Triceps</option>
+                <option value="Shoulders">Shoulders</option>
+                <option value="Leg">Leg</option>
+                <option value="Back" selected>Back</option>
+                <option value="Biceps">Biceps</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Yoga">Yoga</option>
+                </select>
+
+                <label for="sat">Saturday</label>
+
+            <select name="sat">
+                <option value="Chest">Chest</option>
+                <option value="Triceps">Triceps</option>
+                <option value="Shoulders">Shoulders</option>
+                <option value="Leg">Leg</option>
+                <option value="Back">Back</option>
+                <option value="Biceps" selected>Biceps</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Yoga">Yoga</option>
+                </select>
+
+                <label for="train">Trainer</label>
+                <select name="train">
+                    {%for i in trainer %}
+                   <option value="trainer">{{i.trainer_name}}</option>                
+                    {% endfor %}
+                </select>
+            </div>
+        </div>    
+        </form>
+    </section>
+{% endblock %}   -->

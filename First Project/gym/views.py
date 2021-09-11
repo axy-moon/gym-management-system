@@ -31,7 +31,7 @@ def payment(request):
 			return HttpResponse("Member not Found")
 
 		fee.objects.filter(pk=mem_id).update(paid_status=True)
-		return redirect('gym:success')
+		return redirect('gym:psuccess')
 	ExpiryDate = {
 	'months' : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
 	'years' : [2021,2022,2023,2024,2025,2026,2027,2028,2029,2030] }
@@ -56,13 +56,22 @@ def membership(request):
 		cell = request.POST['cell']
 		pack = request.POST['plan']
 		dob = request.POST['DOB']
+	
+		transId = ""
 
-		gym.objects.create(full_name=name,gender=gender,age=age,cell_no=cell,born_date=dob,email=email,plan=pack)
-		return redirect('gym:home')
+		for i in range(9):
+			transId += str(random.randint(1,10))
+
+		gym.objects.create(full_name=name,gender=gender,age=age,cell_no=cell,born_date=dob,email=email,plan=pack,trans=transId)
+		return redirect('gym:msuccess')
 	ExpiryDate = {
 		'months' : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
 	 	'years' : [2021,2022,2023,2024,2025,2026,2027,2028,2029,2030] }
 	return render(request,'gym/membership.html',{'dates':ExpiryDate})
+
+def memsuc(request):
+
+	return render(request,"gym/memsucess.html")
 
 #PDF GENERATOR
 

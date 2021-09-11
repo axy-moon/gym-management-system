@@ -1,41 +1,35 @@
 {% extends 'manage/admin.html' %}
 
 {% block title %}
-AM FITNESS - Trainers
+AM FITNESS - TRAINERS
 {% endblock %}
 {% block page %}
 
 <section class="data-table">
     <h3>trainers</h3>
-    <div class="mem-link" style="margin-left:150px;">
-    <a href="#">Add Trainer  <i class="fas fa-user-plus"></i></a>
+    <div class="mem-link" style="margin-left:330px;">
+    <a href="{% url 'addTrainer' %}">Add Trainer  <i class="fas fa-user-plus"></i></a>
     </div>
     <table class="content-table">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Age</th>
                 <th>Gender</th>
                 <th>Mobile</th>
                 <th>Area of Specialization</th>
-                <th>No of Clients</th>
                 <th>Salary/month</th>
-                <th>     </th>
             </tr>
         </thead>
         <tbody>
             {% for i in trainer %}
             <tr>
-                <td>{{i.id}}</td>
                 <td>{{i.trainer_name}}</td>
                 <td>{{i.trainer_age}}</td>
                 <td>{{i.trainer_gender}}</td>
                 <td>{{i.trainer_cell}}</td>
                 <td>{{i.aos}}</td>
-                <td>{{i.clients}}</td>
                 <td>{{i.salary}}</td>
-                <td><a class="table-btn" href="#" onclick="return confirm('Are You Sure?')">Delete</a></td>
             </tr>
             {% endfor %}
         </tbody>

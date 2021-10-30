@@ -150,5 +150,9 @@ def addTrainer(request):
 @login_required
 def adminPage(request):
 	total_members = gym.objects.all().count()
-	context = {'total_members':total_members}
+	total_eq = equipments.objects.all().count()
+	total_enq = enquiries.objects.all().count()
+	total_fee = fee.objects.filter(paid_status = False).count()
+	mini_tab = gym.objects.filter().order_by('-date_joined')[:3]
+	context = {'total_members':total_members,'total_eq':total_eq,'total_enq':total_enq,'total_fee':total_fee,'mini_tab':mini_tab}
 	return render(request,'manage/dashboard.html',context)

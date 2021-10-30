@@ -48,21 +48,21 @@
     <div class="col-div-3">
 
         <div class="box"> 
-            <p>67</br><span>Equipment</span></p>
+            <p>{{total_eq}}</br><span>Equipment</span></p>
             <i class="fas fa-tools box-icon"></i>
         </div>
     </div>
     <div class="col-div-3">
 
         <div class="box"> 
-            <p>67</br><span>Enquiries</span></p>
+            <p>{{total_enq}}</br><span>Enquiries</span></p>
             <i class="fas fa-comments box-icon"></i>
         </div>
     </div>
     <div class="col-div-3">
 
         <div class="box"> 
-            <p>67</br><span>Pending Dues</span></p>
+            <p>{{total_fee}}<br/><span> Dues</span></p>
             <i class="fas fa-wallet box-icon"></i>
         </div>
     </div>
@@ -82,22 +82,14 @@
     <th>Plan</th>
   </tr>
   <tr>
-    <td>1</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
+    {% for i in mini_tab %}
+    
+    <td>{{i.id}}</td>
+    <td>{{i.full_name}}</td>
+    <td>{{i.plan}}</td>
   </tr>
  
-  
+  {% endfor %}
   
 </table>
 		</div>

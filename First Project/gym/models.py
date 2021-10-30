@@ -8,12 +8,12 @@ from manage.models import trainers
 # Create your models here.
 
 class gym(models.Model):
-	full_name = models.CharField(max_length=100)
-	gender = models.CharField(max_length=7)
+	full_name = models.CharField(max_length=30,null=False)
+	gender = models.CharField(max_length=6,default='Male',null=True)
 	age = models.IntegerField(default=18)
-	cell_no = models.IntegerField()
-	born_date = models.DateField(null=True,default=None,blank=True)
-	email = models.EmailField()
+	cell_no = models.IntegerField(unique=True,null=False)
+	born_date = models.DateField(null=False,default=None,blank=True)
+	email = models.EmailField(unique=True)
 	plan = models.CharField(max_length=10,default='Silver',null=False)
 	date_joined = models.DateTimeField(default=timezone.now)
 	trans = models.IntegerField(default=1,verbose_name="Transaction Number")
@@ -36,12 +36,12 @@ class enquiries(models.Model):
 	
 
 class equipments(models.Model):
-	eq_name = models.CharField(max_length=30,verbose_name='Name',null=True)
+	eq_name = models.CharField(max_length=50,verbose_name='Name',null=True)
 	units = models.IntegerField(default=1,verbose_name='Quantity')
 	model_no = models.CharField(max_length=30,verbose_name='Model No',null=True)
 	eq_type = models.CharField(max_length=30,verbose_name='Type',default='Cardio')
 	price = models.IntegerField(verbose_name='Price',null=True)
-	warranty = models.CharField(max_length=100,verbose_name='Warranty Period',default='1 year')
+	warranty = models.CharField(max_length=10,verbose_name='Warranty Period',default='1 year')
 	date_of_pur = models.DateField(default='2021-08-08',verbose_name='Date of Purchase')
 
 	class Meta:
@@ -74,7 +74,7 @@ class fee(models.Model):
 	member = models.ForeignKey(gym,on_delete=CASCADE,default=1,verbose_name='Member Name')
 	paid_status = models.BooleanField(default=False,verbose_name='Status')
 	pay_mode = models.CharField(max_length=10,default='Online',verbose_name='Payment Mode')
-	trans_id = models.IntegerField(default=1,verbose_name="Transaction ID")
+	trans_id = models.CharField(primary_key=True,max_length=100)
 
 	def __str__(self):
 		return self.member.full_name

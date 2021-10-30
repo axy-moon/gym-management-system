@@ -1,0 +1,131 @@
+<html>
+<head>
+{% load static %} 
+<script src="https://kit.fontawesome.com/4fc0c0ec0f.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;600&display=swap" rel="stylesheet">
+
+<title> AM FITNESS | DASHBOARD </title>
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'css/style5.css'%}">
+{% endblock %}
+</head>
+<body>
+<div id="mySidenav" class="sidenav">
+    <p class="logo"><span>AM</span>FITNESS</p>
+    <a href="#" class="icon-a"><i class="fa fa-dashboard icons"></i>  Dashboard</a>
+    <a href="#" class="icon-a"><i class="fas fa-users"></i>  Members</a>
+    <a href="#" class="icon-a"><i class="fas fa-tools"></i>  Equipments</a>
+    <a href="#" class="icon-a"><i class="fas fa-comments"></i>  Enquiries</a>
+    <a href="#" class="icon-a"><i class="fas fa-chalkboard-teacher"></i>  Trainers</a>
+    <a href="#" class="icon-a"><i class="fas fa-clock"></i>  Schedule</a>
+    <a href="#" class="icon-a"><i class="fas fa-wallet"></i>  Fees</a>
+
+
+</div>
+
+<div id="main">
+    <div class="head">
+        <div class="col-div-6">
+            <span style="font-size: 30px; cursor: pointer; color: white;" class="nav"> Dashboard</span>
+        </div>
+        
+        <!-- <div class="col-div-6">
+            <div  class="profile">
+                <p>Admin<span>Gym Owner</span></p>
+            </div>    
+        </div> -->
+        
+        <div class="clearfix"></div>     
+        </div>
+        
+     <div class="col-div-3">
+
+        <div class="box"> 
+            <p>{{total_members}}</br><span>Members</span></p>
+            <i class="fas fa-users box-icon"></i>
+        </div>
+    </div>
+    <div class="col-div-3">
+
+        <div class="box"> 
+            <p>67</br><span>Equipment</span></p>
+            <i class="fas fa-tools box-icon"></i>
+        </div>
+    </div>
+    <div class="col-div-3">
+
+        <div class="box"> 
+            <p>67</br><span>Enquiries</span></p>
+            <i class="fas fa-comments box-icon"></i>
+        </div>
+    </div>
+    <div class="col-div-3">
+
+        <div class="box"> 
+            <p>67</br><span>Pending Dues</span></p>
+            <i class="fas fa-wallet box-icon"></i>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    <br/><br/>
+   
+    <div class="col-div-8">
+		<div class="box-8">
+		<div class="content-box">
+			<p>Newly Joined Members <span><a href="#" class="span"> See All</a></span></p>
+			<br/>
+			<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Plan</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Maria Anders</td>
+    <td>Germany</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Francisco Chang</td>
+    <td>Mexico</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Roland Mendel</td>
+    <td>Austria</td>
+  </tr>
+ 
+  
+  
+</table>
+		</div>
+	</div>
+	</div>
+
+	<div class="col-div-4">
+		<div class="box-4">
+		<div class="content-box">
+			<p>Monthly Renewal Rate</p>
+
+			<div class="circle-wrap">
+    <div class="circle">
+      <div class="mask full">
+        <div class="fill"></div>
+      </div>
+      <div class="mask half">
+        <div class="fill"></div>
+      </div>
+      <div class="inside-circle"> 70% </div>
+    </div>
+  </div>
+		</div>
+	</div>
+	</div>
+		
+	<div class="clearfix"></div>
+</div>
+
+</body>
+</html>

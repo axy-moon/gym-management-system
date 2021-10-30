@@ -41,7 +41,9 @@ urlpatterns = [
     path('AdminPage/Update_status(?p<int:pid>)',manage_views.updateFee,name='updatefee'),
 
     path('AdminPage/schedule',manage_views.sched,name='schedule'),
-    path('AdminPage/schedule/add_schedule',manage_views.addSched,name='addsch')
+    path('AdminPage/schedule/add_schedule',manage_views.addSched,name='addsch'),
+
+    path('AdminPage/dashboard',manage_views.dashboard,name='dash')
 
 
     

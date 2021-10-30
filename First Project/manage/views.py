@@ -65,7 +65,8 @@ def fees(request):
 
 def member(request):
 	members = gym.objects.all()
-	d = {'members':members}
+	count = gym.objects.all().count()
+	d = {'members':members,'count':count}
 	return render(request,'manage/members.html',d)
 
 def addMemmber(request):
@@ -141,6 +142,11 @@ def addTrainer(request):
 		trainers.objects.create(trainer_name=name,trainer_age=age,trainer_gender=gender,trainer_cell=cell,aos=spl,salary=salary)
 		return redirect('trainers')	
 	return render(request,'manage/addTrainer.html')
+
+def dashboard(request):
+	total_members = gym.objects.all().count()
+	context = {'total_members':total_members}
+	return render(request,'manage/dashboard.html',context)
 
 @login_required
 def adminPage(request):

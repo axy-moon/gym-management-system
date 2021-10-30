@@ -80,6 +80,8 @@ def addMemmber(request):
 		plan = request.POST['plan']
 
 		gym.objects.create(full_name=name,gender=gender,age=age,cell_no=phone,born_date=dob,email=email,plan=plan)
+		f = gym.objects.get(full_name=name)
+		fee.objects.create(member=f,paid_status=True,pay_mode='Offline')
 		return redirect('members')
 	return render(request,'manage/addMember.html')
 

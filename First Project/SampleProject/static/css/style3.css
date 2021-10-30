@@ -260,7 +260,7 @@ nav img {
 }
 
 .content-table thead tr {
-    background-color: #9c7ece;
+    background-color: #f7403b;
     color:#fff;
     text-align:left;
     font-weight: bold;    
@@ -281,12 +281,12 @@ nav img {
 }
 
 .content-table tbody tr:last-of-type {
-    border-bottom: 2px solid #9c7ece;
+    border-bottom: 2px solid #f7403b;
 }
 
 .content-table tbody tr:hover {
 
-    color: #9c7ece;
+    color: #f7403b;
     background-color: silver ;
 
 }
@@ -305,7 +305,7 @@ nav img {
 .mem-link a {
 	display: inline-block;
 	padding: 5px;
-	background: #A4FF00;
+	background: #81818140;
 	border-radius: 4px;
 	text-decoration: none;
 	color: #000;
@@ -318,7 +318,7 @@ nav img {
 	margin-left: 15px;
 	display: inline-block;
 	padding: 5px;
-	background: #A4FF00;
+	background: #81818140;
 	border-radius: 4px;
 	text-decoration: none;
 	color: #000;
@@ -329,7 +329,7 @@ nav img {
 
 .mem-link a:hover,
 .mem-link2 a:hover {
-	background-color: green;
+	background-color: grey;
 }
 
 /* ####################################### ADD MEMBER FORM #################################################### */

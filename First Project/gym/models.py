@@ -13,7 +13,7 @@ class gym(models.Model):
 	age = models.IntegerField(default=18)
 	cell_no = models.IntegerField(unique=True,null=False)
 	born_date = models.DateField(null=False,default=None,blank=True)
-	email = models.EmailField(unique=True)
+	email = models.EmailField()
 	plan = models.CharField(max_length=10,default='Silver',null=False)
 	date_joined = models.DateTimeField(default=timezone.now)
 	trans = models.IntegerField(default=1,verbose_name="Transaction Number")
@@ -74,7 +74,6 @@ class fee(models.Model):
 	member = models.ForeignKey(gym,on_delete=CASCADE,default=1,verbose_name='Member Name')
 	paid_status = models.BooleanField(default=False,verbose_name='Status')
 	pay_mode = models.CharField(max_length=10,default='Online',verbose_name='Payment Mode')
-	trans_id = models.CharField(primary_key=True,max_length=100)
 
 	def __str__(self):
 		return self.member.full_name

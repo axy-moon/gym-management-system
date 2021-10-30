@@ -23,7 +23,7 @@ urlpatterns = [
 
     path('login',manage_views.login, name = 'login'),
     path('logout',manage_views.logout,name = 'logout'),
-    path('AdminPage/',manage_views.adminPage,name='adminpage'),
+    path('AdminPage/dashboard',manage_views.adminPage,name='adminpage'),
 
     path('AdminPage/enquiries',manage_views.enquiry,name='enquiry'),
     path('AdminPage/del_status(?p<int:pid>)',manage_views.deleteEnq,name='delEnq'),
@@ -41,9 +41,8 @@ urlpatterns = [
     path('AdminPage/Update_status(?p<int:pid>)',manage_views.updateFee,name='updatefee'),
 
     path('AdminPage/schedule',manage_views.sched,name='schedule'),
-    path('AdminPage/schedule/add_schedule',manage_views.addSched,name='addsch'),
+    path('AdminPage/schedule/add_schedule',manage_views.addSched,name='addsch')
 
-    path('AdminPage/dashboard',manage_views.dashboard,name='dash')
 
 
     

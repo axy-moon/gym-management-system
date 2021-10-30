@@ -143,11 +143,10 @@ def addTrainer(request):
 		return redirect('trainers')	
 	return render(request,'manage/addTrainer.html')
 
-def dashboard(request):
-	total_members = gym.objects.all().count()
-	context = {'total_members':total_members}
-	return render(request,'manage/dashboard.html',context)
+
 
 @login_required
 def adminPage(request):
-	return render(request,'manage/adminPage.html')
+	total_members = gym.objects.all().count()
+	context = {'total_members':total_members}
+	return render(request,'manage/dashboard.html',context)

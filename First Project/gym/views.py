@@ -56,13 +56,13 @@ def membership(request):
 		cell = request.POST['cell']
 		pack = request.POST['plan']
 		dob = request.POST['DOB']
-	
-		transId = ""
-
-		for i in range(9):
-			transId += str(random.randint(1,10))
-
-		gym.objects.create(full_name=name,gender=gender,age=age,cell_no=cell,born_date=dob,email=email,plan=pack,trans=transId)
+		
+		numbers = "1234567890"
+		alpha_upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		a = numbers + alpha_upper
+		length = 12
+		trans_id = "".join(random.sample(a,length))
+		gym.objects.create(full_name=name,gender=gender,age=age,cell_no=cell,born_date=dob,email=email,plan=pack,trans=trans_id)
 		return redirect('gym:msuccess')
 	ExpiryDate = {
 		'months' : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
@@ -70,8 +70,9 @@ def membership(request):
 	return render(request,'gym/membership.html',{'dates':ExpiryDate})
 
 def memsuc(request):
-
-	return render(request,"gym/memsucess.html")
+	g = gym.objects.filter().order_by('-date_joined')[:1]
+	con = {'g':g}
+	return render(request,"gym/memsucess.html",con)
 
 # #PDF GENERATOR
 

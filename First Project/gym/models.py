@@ -17,7 +17,7 @@ class gym(models.Model):
 	email = models.EmailField()
 	plan = models.CharField(max_length=10,default='Silver',null=False)
 	date_joined = models.DateTimeField(default=timezone.now)
-	trans = models.IntegerField(default=1,verbose_name="Transaction Number")
+	trans = models.CharField(default=1,verbose_name="Transaction Number",max_length=100)
 
 	class Meta:
 		verbose_name_plural = "Members"

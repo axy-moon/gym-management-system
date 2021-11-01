@@ -104,12 +104,19 @@ def logout(request):
 
 def updateFee(request,pid):
 	f = fee.objects.get(id=pid)
-	if f.paid_status == True:
-		f.paid_status = False
-	else:
+	
+	if f.paid_status == False:
 		f.paid_status = True
 		f.paid_date = date.today()	
-	f.save()
+		if f.amt == 1000:
+			due_date = f.paid_date + timedelta(days=30)
+		elif f.amt == 8000:
+			due_date = f.paid_date + timedelta(days=180)
+		elif f.amt == 25000:
+			due_date = f.paid_date + timedelta(days=360)
+		else:
+			print("Invalid Plan")
+		f.save()
 
 	return redirect('fee')
 

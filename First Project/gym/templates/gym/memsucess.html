@@ -6,7 +6,10 @@
 
     <h1 class="msuccess">Welcome to our community</h1>
     <p class="ms">You are now a member of <b>AM FITNESS</b></p>
-    
+    {% for i in g%}
+    <p class="ms">Transaction ID: {{i.trans}}</p> 
+    <p class="ms">Your Member ID: {{i.id}}</p> 
+    {% endfor %}
     
 
 

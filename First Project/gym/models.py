@@ -5,6 +5,7 @@ from django.db.models.fields import AutoField, CharField, IntegerField
 from django.db.models.fields.related import ForeignKey
 from django.utils import timezone
 from manage.models import trainers
+from datetime import date
 # Create your models here.
 
 class gym(models.Model):
@@ -17,6 +18,9 @@ class gym(models.Model):
 	plan = models.CharField(max_length=10,default='Silver',null=False)
 	date_joined = models.DateTimeField(default=timezone.now)
 	trans = models.IntegerField(default=1,verbose_name="Transaction Number")
+
+	class Meta:
+		verbose_name_plural = "Members"
 	
 
 	def __str__(self):
@@ -74,6 +78,8 @@ class fee(models.Model):
 	member = models.ForeignKey(gym,on_delete=CASCADE,default=1,verbose_name='Member Name')
 	paid_status = models.BooleanField(default=False,verbose_name='Status')
 	pay_mode = models.CharField(max_length=10,default='Online',verbose_name='Payment Mode')
-
+	paid_date = models.DateField(default=date.today,verbose_name='Payment Date')
+	due_date = models.DateField(default=date.today,verbose_name='Due Date')
+	amt = models.IntegerField(default=1000)
 	def __str__(self):
 		return self.member.full_name

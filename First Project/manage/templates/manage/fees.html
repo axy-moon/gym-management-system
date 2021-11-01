@@ -15,6 +15,9 @@ AM FITNESS - Fees & Payments
                 <th>Name</th>
                 <th>Status</th>
                 <th>Mode</th>
+                <th>Amount</th>
+                <th>Paid Date</th>
+                <th>Due Date</th>
                 <th>     </th>
             </tr>
         </thead>
@@ -28,7 +31,10 @@ AM FITNESS - Fees & Payments
                 {% else %}
                     <td>Pending</td>
                 {% endif %}
-                    <td>{{i.pay_mode}}</td>    
+                    <td>{{i.pay_mode}}</td>
+                    <td>{{i.amt}}</td>
+                    <td>{{i.paid_date}}</td>
+                    <td>{{i.due_date}}</td>
                 <td><a class="table-btn" href="{% url 'updatefee' i.id %}" style="background-color: #81818140;">Update</a></td>
             </tr>
             {% endfor %}

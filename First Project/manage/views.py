@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from gym.models import * 
 from manage.models import trainers
+from datetime import date,timedelta
 # Create your views here.
 
 def login(request):
@@ -81,7 +82,19 @@ def addMemmber(request):
 
 		gym.objects.create(full_name=name,gender=gender,age=age,cell_no=phone,born_date=dob,email=email,plan=plan)
 		f = gym.objects.get(full_name=name)
-		fee.objects.create(member=f,paid_status=True,pay_mode='Offline')
+		begindate = date.today()
+		if plan == 'Silver':
+			enddate = begindate + timedelta(days=30)
+			amount = 1000
+		elif plan == 'Gold':
+			enddate = begindate + timedelta(days=180)
+			amount = 8000
+		elif plan == 'Diamond':
+			enddate = begindate + timedelta(days=360)
+			amount = 25000
+		else:
+			return HttpResponse("Invalid Plan")
+		fee.objects.create(member=f,paid_status=True,pay_mode='Offline',due_date=enddate,amt=amount)
 		return redirect('members')
 	return render(request,'manage/addMember.html')
 
@@ -94,7 +107,8 @@ def updateFee(request,pid):
 	if f.paid_status == True:
 		f.paid_status = False
 	else:
-		f.paid_status = True	
+		f.paid_status = True
+		f.paid_date = date.today()	
 	f.save()
 
 	return redirect('fee')
